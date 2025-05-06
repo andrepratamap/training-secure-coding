@@ -1,43 +1,38 @@
 <?php
-require '../../vendor/autoload.php'; // Autoload Composer
+header('Content-Type: application/json');
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/error.log');
 
-// Koneksi ke MongoDB
-$client = new MongoDB\Client("mongodb://localhost:27017");
+require '../../vendor/autoload.php';
+use MongoDB\Client;
+
+$client = new Client("mongodb://localhost:27017");
 $database = $client->selectDatabase('secure_coding');
 $collection = $database->selectCollection('users');
 
-// Ambil data JSON dari input
 $data = json_decode(file_get_contents("php://input"), true);
 
-// Ambil email dan password dari data yang di-decode
-$email = $data['email'] ?? null; // Menggunakan null coalescing operator
+$email = $data['email'] ?? null;
 $password = $data['password'] ?? null;
 
-if ($email && $password) {
-    // Query rentan terhadap NoSQL injection, query dibangun langsung dengan input pengguna
-    $user = $collection->findOne([
-        'email' => $email,
-        'password' => $password // Rentan terhadap NoSQL Injection
-    ]);
-
-    // Memeriksa apakah pengguna ditemukan
-    if ($user) {
-        echo json_encode(["message" => "Login berhasil!"]);
-    } else {
-        // Jika pengguna tidak ditemukan, cek apakah hanya password yang salah
-        $userByEmail = $collection->findOne([
-            'email' => $email
-        ]);
-
-        if ($userByEmail) {
-            // Jika email ditemukan, berarti password yang salah
-            echo json_encode(["message" => "Password tidak ditemukan!"]);
-        } else {
-            // Jika email tidak ditemukan
-            echo json_encode(["message" => "Email dan password tidak ditemukan!"]);
-        }
-    }
-} else {
-    echo json_encode(["message" => "Email dan password tidak boleh kosong!"]);
+if (!is_string($email) || !is_string($password)) {
+    echo json_encode(["message" => "Email dan password tidak valid!"]);
+    exit;
 }
-?>
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo json_encode(["message" => "Format email tidak valid!"]);
+    exit;
+}
+
+$email = filter_var($email, FILTER_SANITIZE_EMAIL);
+$password = trim($password);
+
+$user = $collection->findOne(['email' => $email]);
+
+if ($user && isset($user['password']) && password_verify($password, $user['password'])) {
+    echo json_encode(["message" => "Login berhasil!"]);
+} else {
+    echo json_encode(["message" => "Akun Tidak Valid!"]);
+}

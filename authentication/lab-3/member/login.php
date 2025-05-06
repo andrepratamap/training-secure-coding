@@ -1,3 +1,5 @@
+<?php session_start(); 
+$host = "http://127.0.0.1:8003";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

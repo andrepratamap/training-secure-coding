@@ -1,0 +1,40 @@
+[05-May-2025 16:28:05 UTC] PHP Fatal error:  Uncaught Error: Class "MongoDB\Driver\Manager" not found in /var/www/html/vendor/mongodb/mongodb/src/Client.php:118
+Stack trace:
+#0 /var/www/html/nosql-injection/lab-1/actLogin.php(10): MongoDB\Client->__construct('mongodb://local...')
+#1 {main}
+  thrown in /var/www/html/vendor/mongodb/mongodb/src/Client.php on line 118
+[05-May-2025 16:29:07 UTC] PHP Fatal error:  Uncaught Error: Class "MongoDB\Driver\Manager" not found in /var/www/html/vendor/mongodb/mongodb/src/Client.php:118
+Stack trace:
+#0 /var/www/html/nosql-injection/lab-1/actLogin.php(10): MongoDB\Client->__construct('mongodb://local...')
+#1 {main}
+  thrown in /var/www/html/vendor/mongodb/mongodb/src/Client.php on line 118
+[05-May-2025 16:29:08 UTC] PHP Fatal error:  Uncaught Error: Class "MongoDB\Driver\Manager" not found in /var/www/html/vendor/mongodb/mongodb/src/Client.php:118
+Stack trace:
+#0 /var/www/html/nosql-injection/lab-1/actLogin.php(10): MongoDB\Client->__construct('mongodb://local...')
+#1 {main}
+  thrown in /var/www/html/vendor/mongodb/mongodb/src/Client.php on line 118
+[05-May-2025 16:31:25 UTC] PHP Fatal error:  Uncaught Error: Class "MongoDB\Driver\Manager" not found in /var/www/html/vendor/mongodb/mongodb/src/Client.php:118
+Stack trace:
+#0 /var/www/html/nosql-injection/lab-1/actLogin.php(10): MongoDB\Client->__construct('mongodb://local...')
+#1 {main}
+  thrown in /var/www/html/vendor/mongodb/mongodb/src/Client.php on line 118
+[05-May-2025 16:35:04 UTC] PHP Fatal error:  Uncaught Error: Class "MongoDB\Driver\Manager" not found in /var/www/html/vendor/mongodb/mongodb/src/Client.php:118
+Stack trace:
+#0 /var/www/html/nosql-injection/lab-1/actLogin.php(10): MongoDB\Client->__construct('mongodb://local...')
+#1 {main}
+  thrown in /var/www/html/vendor/mongodb/mongodb/src/Client.php on line 118
+[05-May-2025 16:35:38 UTC] PHP Fatal error:  Uncaught Error: Class "MongoDB\Driver\Manager" not found in /var/www/html/vendor/mongodb/mongodb/src/Client.php:118
+Stack trace:
+#0 /var/www/html/nosql-injection/lab-1/actLogin.php(10): MongoDB\Client->__construct('mongodb://local...')
+#1 {main}
+  thrown in /var/www/html/vendor/mongodb/mongodb/src/Client.php on line 118
+[06-May-2025 02:20:51 UTC] PHP Fatal error:  Uncaught Error: Class "MongoDB\Driver\Manager" not found in /var/www/html/vendor/mongodb/mongodb/src/Client.php:118
+Stack trace:
+#0 /var/www/html/nosql-injection/lab-1/actLogin.php(10): MongoDB\Client->__construct('mongodb://local...')
+#1 {main}
+  thrown in /var/www/html/vendor/mongodb/mongodb/src/Client.php on line 118
+[06-May-2025 02:20:53 UTC] PHP Fatal error:  Uncaught Error: Class "MongoDB\Driver\Manager" not found in /var/www/html/vendor/mongodb/mongodb/src/Client.php:118
+Stack trace:
+#0 /var/www/html/nosql-injection/lab-1/actLogin.php(10): MongoDB\Client->__construct('mongodb://local...')
+#1 {main}
+  thrown in /var/www/html/vendor/mongodb/mongodb/src/Client.php on line 118

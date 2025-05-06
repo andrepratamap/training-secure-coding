@@ -31,7 +31,7 @@
             };
 
             // Mengirim data menggunakan fetch
-            fetch('lab-1/actLogin.php', {
+            fetch('actLogin.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

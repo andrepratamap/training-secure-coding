@@ -3,7 +3,7 @@ async function checkVerification() {
 
     try {
         const body = JSON.stringify({
-            role: 'member'
+            role: 'admin'
         });
 
         const response = await fetch('verification.php', {

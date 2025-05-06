@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+
+// Tambahkan ini agar $host tidak undefined
+$host = "http://127.0.0.1:8003"; // Ubah sesuai dengan alamat lokal/server kamu
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,8 +11,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secure Coding</title>
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="../../assets/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/css/style.css" type="text/css">
     <style>
         button {
             background-color: #006699 !important;
@@ -19,6 +24,8 @@
         }
     </style>
 
+    <!-- Tambahkan script reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -27,7 +34,6 @@
         <aside class="sidebar">
             <p>Pada studi kasus berikut dimana peretas dapat melakukan
                 serangan brute force atau credential stuffing pada halaman login</p>
-
         </aside>
 
         <div class="main-content">
@@ -37,26 +43,30 @@
 
             <div class="login-container">
                 <?php
-
                 if (isset($_SESSION['error_message'])) {
-                    echo "<div style='color: red;margin-top: 10px'>" . $_SESSION['error_message'] . "</div > ";
+                    echo "<div style='color: red;margin-top: 10px'>" . $_SESSION['error_message'] . "</div>";
                     unset($_SESSION['error_message']);
                 }
                 ?>
                 <h2>Login</h2>
                 <form action="<?php echo $host; ?>/authentication/lab-1/actLogin.php" method="POST">
                     <div class="form-group">
-                        <label for="username">Email</label>
-                        <input type="email" class="form-control" id="email" name="email">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password">
+                        <input type="password" class="form-control" id="password" name="password" required>
                     </div>
+
+                    <!-- Tambahkan reCAPTCHA -->
+                    <div class="form-group mt-3">
+                        <div class="g-recaptcha" data-sitekey="6LfEOC8rAAAAAKdFMSrcdFi_ALgfkyuzUxLb4RjF"></div>
+                    </div>
+
                     <br>
                     <button type="submit" class="btn btn-primary btn-block">Login</button>
                 </form>
-
             </div>
         </div>
     </div>

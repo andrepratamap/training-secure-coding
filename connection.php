@@ -11,7 +11,3 @@ $host  = 'http://127.0.0.1:8003';
 if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
-error_reporting(E_ALL); // Melaporkan semua jenis error
-ini_set('display_errors', 1);
-
-session_start();
